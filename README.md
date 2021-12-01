@@ -12,7 +12,7 @@ Use this section to describe your final project and perhaps any links to relevan
 ## Wireframes
 **Mvp**
 ![image](https://user-images.githubusercontent.com/9029262/144320365-64b19f06-34a5-4c38-8a64-4bcf2ec38eaf.png)
-![image](https://user-images.githubusercontent.com/9029262/144320461-7ce223ab-8bd9-4d80-9577-596372faecae.png)
+![image](https://user-images.githubusercontent.com/9029262/144321085-1971a514-878d-4f44-b16f-e1b89a52686a.png)
 ![image](https://user-images.githubusercontent.com/9029262/144320520-b131ccae-7b8f-4212-aa30-dc897a5326ee.png)
 
 **Post-MVP**
