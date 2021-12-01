@@ -10,8 +10,14 @@ The name of your project.
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and/or functionality.
 
 ## Wireframes
+**Mvp**
+![image](https://user-images.githubusercontent.com/9029262/144320365-64b19f06-34a5-4c38-8a64-4bcf2ec38eaf.png)
+![image](https://user-images.githubusercontent.com/9029262/144320461-7ce223ab-8bd9-4d80-9577-596372faecae.png)
+![image](https://user-images.githubusercontent.com/9029262/144320520-b131ccae-7b8f-4212-aa30-dc897a5326ee.png)
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+**Post-MVP**
+![image](https://user-images.githubusercontent.com/9029262/144320868-0ec7f568-5ae6-4c0d-949e-9e0e73c28268.png)
+
 
 ## Component Hierarchy
 ![image](https://user-images.githubusercontent.com/9029262/144319995-c36ab49e-94b4-407b-8509-a2cbaea68b83.png)
