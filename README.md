@@ -83,11 +83,25 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 ## Timeframes
 
 
-| Component | Estimated Time | Time Invested | Actual Time |
-| --- | :---: | :---: | :---: |
-| Adding Form | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | 3hrs| 2.5hrs | 2.5hrs |
-| Total |  6hrs| 5hrs | 5hrs |
+| Step | Estimated Time | Actual Time |
+| --- | :---: | :---: |
+|Create Home | 3|  |
+|Create Header| 1||
+|Create Footer |1||
+|Create Help |1||
+|Style Base |3 | |
+|Create List |3||
+|Create Character Card|3||
+|Address Routing|3||
+|Style List |3 ||
+|Create Details |3||
+|Style Details |3||
+|Create Form |3||
+|Style Form |3||
+|Address Routing |3||
+
+
+| Total |  6hrs|  |
 
 ## SWOT Analysis
 
