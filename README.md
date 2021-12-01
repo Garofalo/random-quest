@@ -81,7 +81,7 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 |Dec 8| Presentations | Incomplete
 
 ## Timeframes
-
+**MVP**
 
 | Step | Estimated Time | Actual Time |
 | --- | :---: | :---: |
@@ -90,18 +90,40 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 |Create Footer |1||
 |Create Help |1||
 |Style Base |3 | |
-|Create List |3||
+|Create List (get request)|3||
 |Create Character Card|3||
+|Style C.Card|1||
 |Address Routing|3||
 |Style List |3 ||
 |Create Details |3||
 |Style Details |3||
-|Create Form |3||
+|Create Form (post request)|3||
+|Handle Images|2||
 |Style Form |3||
 |Address Routing |3||
+|Clean Up/MVP Complete|1||
+| Total |  40hrs|  |
 
+**Post MVP**
 
-| Total |  6hrs|  |
+|Step|Estimated Time| Actual time|
+|---|:---:|:---:|
+|Design Level Component|3||
+|Modify AirTable|3||
+|Basic Style Level|2||
+|Display/Design battle Card|3||
+|Display/Design enemy card|3||
+|Style cards|3||
+|JS for random|3||
+|JS for selection|3||
+|JS for comparison|3||
+|JS for level/scaler|3||
+|JS for Victory|1||
+|JS for defeat(delete request)|3||
+|Address Routing|3||
+|CSS Finish|3||
+|Total|39hrs||
+
 
 ## SWOT Analysis
 
