@@ -3,11 +3,11 @@
 
 ## Project Name
 
-The name of your project.
+Random Quest
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and/or functionality.
+MVP functionality will have the user create a character several traits, including character art that they can later see details on. Post MVP, the user will control any created character in a game that takes the user generated character information and "battles" random information from the app. The character is deleted upon defeat.
 
 ## Wireframes
 **Mvp**
@@ -55,34 +55,30 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP, as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Working AirTable
+- Character Creation 
+- Character Detail Page 
+- Character List
+- Stylish 
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Add Random Game
+- Add Delete Character
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations. Here's an example.
-
 |  Day | Deliverable | Status
 |---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
-|July 17| Presentations | Incomplete
+|Dec 1| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|Dec 2| Project Approval/Structure | Incomplete
+|Dec 3| Core Application Structure | Incomplete
+|Dec 4-5| MVP | Incomplete
+|Dec 6| Structured Game  | Incomplete
+|Dec 7| Post MVP | Incomplete
+|Dec 8| Presentations | Incomplete
 
 ## Timeframes
 
