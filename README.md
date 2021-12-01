@@ -67,6 +67,7 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 
 - Add Random Game
 - Add Delete Character
+- Outside API use
 
 ## Project Schedule
 
