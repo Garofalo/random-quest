@@ -128,7 +128,10 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 ## SWOT Analysis
 
 ### Strengths:
+Creatively solving problems.
 
 ### Weaknesses:
+Designs.
 
 ### Opportunities:
+Learn to use CSS Libraries.
