@@ -20,38 +20,30 @@ Show your component hierarchy here! Use [this](https://cms-assets.tutsplus.com/u
 
 Show us a snippet of JSON returned by your Airtable (you can find it under the API documentation) so we know you can access it and get the info you need. This __must__ be properly formatted. An example is below:
 
-```json
-{
+```j{
     "records": [
         {
-            "id": "recONRzIUTuZ5lXaF",
-            "fields": {
-                "author": "Liz Yrineo",
-                "setup": "Why did the tomato turn red?",
-                "punchline": "Because it saw the salad dressing!"
-            },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "id": "rec9DqyH87HbLyNHI",
+            "fields": {},
+            "createdTime": "2021-12-01T21:08:20.000Z"
         },
         {
-            "id": "rec3oYZ5Tp0AIDsKe",
+            "id": "recUCbQI10Lb4al22",
             "fields": {
-                "author": "Rachel Moskowitz",
-                "setup": "What did the green grape say to the red grape?",
-                "punchline": "Breathe, idiot, breathe!"
+                "name": "Dingus",
+                "attack": "Attacky",
+                "defense": "defendy",
+                "description": "he strong",
+                "image": "https://picsum.photos/200/300"
             },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "createdTime": "2021-12-01T21:08:20.000Z"
         },
         {
-            "id": "recA34tOaoE1IVeC1",
-            "fields": {
-                "author": "Gary Grant",
-                "setup": "How do you make holy water?",
-                "punchline": "You boil the hell out of it!"
-            },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "id": "rechtLeNdECrXpnHw",
+            "fields": {},
+            "createdTime": "2021-12-01T21:08:20.000Z"
         }
-    ],
-    "offset": "recA34tOaoE1IVeC1"
+    ]
 }
 ```
 
