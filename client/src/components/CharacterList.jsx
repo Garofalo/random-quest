@@ -20,7 +20,7 @@ export default function CharacterList(props) {
 // console.log(characterList)
 
   return (
-    <div>
+    <div className='character-list'>
       {props.characterList &&
         props.characterList.map((character) => {
           return (<div className='char-card'>

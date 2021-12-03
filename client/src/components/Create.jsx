@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router"
 import { createNewCharacter } from "../services"
 
-export default function Create() {
+export default function Create(props) {
   const [name, setName] = useState('')
   const [attack, setAttack] = useState('')
   const [defense, setDefense]= useState('')
@@ -21,10 +21,11 @@ export default function Create() {
       description
     }
     const res = await createNewCharacter(newChar)
-
+    
     if (res) {
       nav('/charlist')
     }
+    props.setToggle(e=>!e)
   }
   const getRandomPic = () => {
     if (toggleImg) {

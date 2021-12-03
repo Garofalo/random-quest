@@ -1,4 +1,6 @@
+import './Normalize.css';
 import './App.css';
+
 import { Routes, Route } from 'react-router-dom'
 import CharacterList from './components/CharacterList';
 import Home from './components/Home';
