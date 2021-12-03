@@ -4,8 +4,8 @@ import logoThin from './logo-thin.png'
 export default function Header() {
   return (
     <header>
-      <img src={logoThin} id='head-logo'/>
-      <Link to='/'><button>Home</button></Link>
+      
+      <Link to='/'><img src={logoThin} id='head-logo'/></Link>
     </header>
   )
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
+
 .character-list {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -17,7 +19,13 @@ header {
   align-items: center;
 }
 #head-logo {
-  height: 166px;
+  height: 19vh;
   width: 500px;
   overflow: hidden;
+}
+* {
+  font-family: "Ubuntu Mono", monospace;
+}
+a {
+  text-decoration: none;
 }

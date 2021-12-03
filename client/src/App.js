@@ -2,11 +2,11 @@ import './Normalize.css';
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom'
-import CharacterList from './components/CharacterList';
+import CharacterList from './components/List/CharacterList';
 import Home from './components/Home/Home';
 import Header from './components/Header';
 import Help from './components/Help';
-import Create from './components/Create';
+import Create from './components/Create/Create';
 import Details from './components/Details';
 import axios from 'axios';
 import {characterURL,config} from './services/index'
