@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
+
+.logo-holder {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 5;
+}
+p {
+  font-family: "Ubuntu Mono", monospace;
+}
+button {
+  font-family: "Ubuntu Mono", monospace;
+}
+.home {
+  display: grid;
+  grid-template-rows: repeat(5, 20vh);
+  grid-template-columns: repeat(5, 20vw);
+}
+#logo {
+  width: 60vw;
+  height: 60vh;
+}
+nav-start {
+  grid-column: 3/4;
+  grid-row: 5/6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav-help {
+  grid-column: 5/6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}

@@ -11,4 +11,13 @@
 }
 header {
   background-color: #5271ff;
+  height: 19vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#head-logo {
+  height: 166px;
+  width: 500px;
+  overflow: hidden;
 }
