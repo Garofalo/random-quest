@@ -1,6 +1,5 @@
 import './Normalize.css';
 import './App.css';
-
 import { Routes, Route } from 'react-router-dom'
 import CharacterList from './components/List/CharacterList';
 import Home from './components/Home/Home';
@@ -11,6 +10,7 @@ import Details from './components/details/Details';
 import axios from 'axios';
 import {characterURL,config} from './services/index'
 import { useState, useEffect } from 'react';
+import Level from './components/Level/Level';
 
 
 function App() {
@@ -34,7 +34,8 @@ function App() {
         <Route path='/charlist' element={<><Header /><CharacterList characterList={characterList} setToggle={setToggle}/></>} />
         <Route path='/' element={<Home setToggle={setToggle}/>} />
         <Route path='/create' element={<><Header /><Create setToggle={setToggle}/></>} />
-        <Route path='/details/:id' element={<><Header /><Details characterList={characterList} setToggle={setToggle}/></>}/>
+        <Route path='/details/:id' element={<><Header /><Details characterList={characterList} setToggle={setToggle} /></>} />
+        <Route path='/battle/:id' element={<><Header /><Level characterList={characterList} setToggle={setToggle}/></>}/>
       </Routes>
     </div>
   );

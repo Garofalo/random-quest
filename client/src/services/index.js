@@ -14,3 +14,15 @@ export const createNewCharacter = async (body)=>{
   const res = await axios.post(`${characterURL}`, {fields: body}, config)
   return res.data
 }
+
+// need function that calculates outcome
+// need dice roller takes level as argument
+// need function to display preview
+export const rollDicePlayer = (level) => {
+  return (Math.floor(Math.random()*20) + level*5)
+}
+
+export const rollDiceComp = (level) => {
+  console.log(Math.floor(Math.random()*20)+level*5)
+}
+rollDiceComp(2)

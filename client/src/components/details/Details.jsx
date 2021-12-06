@@ -38,6 +38,11 @@ export default function Details(props) {
     nav('/charlist')
   }
   
+  function startGame() {
+    nav(`/battle/${character.id}`)
+  }
+
+
   return(
     <div>{
       character?.fields &&
@@ -59,7 +64,7 @@ export default function Details(props) {
         <h3>Character Description:</h3>
           <p className='inputs'>{character.fields.description}</p>
         </div>
-        <div className='select' id='select'><Button size='large' variant='contained' theme={theme}id='select'>Start the Game</Button></div>
+        <div className='select' id='select'><Button size='large' variant='contained' theme={theme}id='select' onClick={startGame}>Start the Game</Button></div>
         <div className='det-right'>
         <h1>HP</h1>
         <h1 id='hp'>{character.fields.hp}</h1>
