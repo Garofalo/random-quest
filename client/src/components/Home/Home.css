@@ -33,3 +33,13 @@ nav-help {
   justify-content: center;
   flex-direction: column-reverse;
 }
+
+@media (max-width: 750px) {
+  #logo {
+    width: 100vw;
+  }
+  .logo-holder {
+    grid-column: 1/6;
+    grid-row: 2/6;
+  }
+}

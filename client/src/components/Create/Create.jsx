@@ -35,7 +35,10 @@ export default function Create(props) {
       attack,
       defense,
       image,
-      description
+      description,
+      hp: '100',
+      level: '1',
+
     }
     const res = await createNewCharacter(newChar)
     
@@ -55,8 +58,8 @@ export default function Create(props) {
   return (
 
     <div className='create'>
-      <div className='left'>
-        <form >
+      <div className='left-form' >
+        <form className='left' >
           <h2>Name Yourself </h2>
         <input type='text' maxlength="20" id='name' value={name} 
             onChange={(e) => { setName(e.target.value) }} placeholder="What's your name?" />
@@ -75,7 +78,7 @@ export default function Create(props) {
       </form>
       </div>
       <div className='right'>
-        <div className='portrait-holder'>
+        <div className='image-section'>
           <div className='frame'>{image &&
             <img id='portrait' src={image} />}</div>
           <div>
@@ -91,10 +94,10 @@ export default function Create(props) {
           <h2>{defense}</h2>
           <h3>Biography:</h3>
           <p id="prev-desc">{description}</p>
-        </div>
-        
-        <div className='create-holder'><Button size='large' variant='contained' theme={theme} id='create-button'onClick={createCharacter}>Create!</Button></div>
-        </div>
+      </div>
+        {name !== '' && attack !== '' && defense !== '' && description !== '' && image !== '' &&
+          <div className='create-holder'><Button size='large' variant='contained' theme={theme} id='create-button' onClick={createCharacter}>Create!</Button></div>
+        }</div>
     </div>
   )
 }

@@ -1,16 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
 
-.character-list {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.char-card {
-  display: block;
-}
-.char-card > img {
-  border-radius: 50%;
-}
 header {
   background-color: #5271ff;
   height: 19vh;
@@ -28,4 +17,12 @@ header {
 }
 a {
   text-decoration: none;
+}
+@media (max-width: 750px) {
+  header {
+    height: 10vh;
+  }
+  #head-logo {
+    height: 10vh;
+  }
 }

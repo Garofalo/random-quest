@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import Header from './components/Header';
 import Help from './components/Help';
 import Create from './components/Create/Create';
-import Details from './components/Details';
+import Details from './components/details/Details';
 import axios from 'axios';
 import {characterURL,config} from './services/index'
 import { useState, useEffect } from 'react';
