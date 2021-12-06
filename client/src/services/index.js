@@ -19,10 +19,9 @@ export const createNewCharacter = async (body)=>{
 // need dice roller takes level as argument
 // need function to display preview
 export const rollDicePlayer = (level) => {
-  return (Math.floor(Math.random()*20) + level*5)
+  return (Math.floor((Math.random()*20))*5 + (level*5)+5)
 }
 
 export const rollDiceComp = (level) => {
-  console.log(Math.floor(Math.random()*20)+level*5)
+  return ((Math.floor((Math.random()*20))*5)+(level*5))
 }
-rollDiceComp(2)
