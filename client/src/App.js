@@ -35,7 +35,8 @@ function App() {
         <Route path='/' element={<Home setToggle={setToggle}/>} />
         <Route path='/create' element={<><Header /><Create setToggle={setToggle}/></>} />
         <Route path='/details/:id' element={<><Header /><Details characterList={characterList} setToggle={setToggle} /></>} />
-        <Route path='/battle/:id' element={<><Header /><Level characterList={characterList} setToggle={setToggle}/></>}/>
+        <Route path='/battle/:id' element={<><Header /><Level characterList={characterList} setToggle={setToggle} /></>} />
+        <Route path='/battle/:id/:level' element={<><Header /><Level characterList={characterList} setToggle={setToggle}/></>}/>
       </Routes>
     </div>
   );

@@ -87,13 +87,13 @@ export default function Create(props) {
         </div>
         <div className='preview-holder'>
           <h1 id='title'>Introducing...</h1>
-          <h1 id='namepre'>{name}</h1>
+          <h1 className='input' id='namepre'>{name}</h1>
           <h2 className='prev-move'>Primary Attack</h2>
-          <h2>{attack}</h2>
+          <h2 className='input'>{attack}</h2>
           <h2 className='prev-move'>Defensive Move</h2>
-          <h2>{defense}</h2>
+          <h2 className='input'>{defense}</h2>
           <h3>Biography:</h3>
-          <p id="prev-desc">{description}</p>
+          <p id="prev-desc" className='input'>{description}</p>
       </div>
         {name !== '' && attack !== '' && defense !== '' && description !== '' && image !== '' &&
           <div className='create-holder'><Button size='large' variant='contained' theme={theme} id='create-button' onClick={createCharacter}>Create!</Button></div>

@@ -22,6 +22,9 @@ form > input {
 #image {
   margin: 15px;
 }
+.input {
+  color: #5271ff;
+}
 form > h2 {
   text-align: center;
   margin-bottom: 0;
@@ -53,6 +56,8 @@ form > h2 {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  background-color: #f6f3e4;
+  border: 3px solid #fd6155;
 }
 .portrait-holder {
   grid-row: 1/4;
@@ -63,9 +68,9 @@ form > h2 {
   flex-direction: column;
 }
 
-.preview-holder > * {
+/* .preview-holder > * {
   margin-left: 5vw;
-}
+} */
 .preview-holder > h1 {
   font-size: 2.5em;
   margin-top: -2vh;
@@ -110,12 +115,15 @@ form > h2 {
     grid-template-columns: repeat(5, 20vw);
     grid-template-rows: 10vh;
   }
+
   .left-form {
     grid-column: 1/6;
     grid-row: 1/5;
   }
   .image-section {
     order: 2;
+    display: flex;
+    margin-right: 9%;
   }
   form > input {
     flex-basis: 4vh;
@@ -123,6 +131,7 @@ form > h2 {
   form {
     display: flex;
     flex-wrap: wrap;
+    margin-right: 9%;
   }
   .right {
     width: 100vw;
@@ -138,7 +147,7 @@ form > h2 {
   .preview-holder {
     order: 1;
     display: flex;
-
+    margin-right: 9%;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
@@ -154,6 +163,6 @@ form > h2 {
   .frame {
     height: 18vh;
     width: 18vh;
-    margin-bottom: 5%;
+    margin: 2%;
   }
 }
