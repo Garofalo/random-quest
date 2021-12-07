@@ -14,6 +14,12 @@ export const createNewCharacter = async (body)=>{
   const res = await axios.post(`${characterURL}`, {fields: body}, config)
   return res.data
 }
+export const deleteCharacer = async (id) => {
+   
+    const res = await axios.delete(`${characterURL}/${id}`, config)
+    return res.data
+  }
+
 
 
 export const rollDicePlayer = (level) => {
@@ -63,5 +69,43 @@ export const rollRandomResult = () => {
     } else if (d4 === 2||d4===3) {
       return 'crit2'
     } 
+  }
+}
+
+let randomWin = ['','outflosses','overpowers', 'beats', 'deregulates', 'overcomes', 'gives a whoopin to', 'catches unawares', 'defeats', 'gets a zinger in on', 'blindsides', 'outpaces', 'steals the freaky license from', 'gets one over on', 'outfuries']
+
+export const randomWinWord = () => {
+  let random = Math.ceil(Math.random() * randomWin.length)
+  return randomWin[random]
+}
+
+let randomLoss = ['', 'tricks you', 'hoodwinks you', 'bamboozles you', 'gets you good', 'catches you slippin, dog', 'beats you to the punch', 'punches you in the face', 'calls some buddies from uptown', 'lures you into a false sense of security', 'wants to talk about your cars extended warranty', "knows you didnt read the terms of service"]
+
+export const randomLossWord = () => {
+  let random = Math.ceil(Math.random() * randomLoss.length)
+  return randomLoss[random]
+}
+let randomContest = ['', 'a Staring Contest', 'a Dance Off', 'Loudest Singer-off', 'a Pushup Contest', 'a Fastest to Knit a Sweater Contest', 'a Hot Yoga For the Longest Contest', 'a Guess that Smell Contest', "a Thumb Wrasslin' Match", "a Great Brexit Bake Off", "a Loop, Swoop & Pull Off", "a Game of Hot Hands", "Extreme Jenga", "Greenest Lifestyle Competition", "Whose Hair is That? Contest"]
+
+export const randomContestWord = () => {
+  let random = Math.ceil(Math.random() * randomContest.length)
+  return randomContest[random]
+}
+
+export const randomNum = (mult) => {
+  let rand = Math.ceil(Math.random() * mult)
+  return rand
+}
+export const getRandomPic = () => {
+  let randID = randomNum(1035)
+  if (randID > 100) {
+    return `https://picsum.photos/id/${randID}/200/200`
+  } else {
+    let randID2 = randomNum(999)
+    if (randID2 > 100) {
+      return `https://picsum.photos/id/${randID}/200/200`
+    } else {
+      return false
+    }
   }
 }

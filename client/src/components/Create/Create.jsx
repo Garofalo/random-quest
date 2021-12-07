@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
-import { createNewCharacter } from "../../services"
+import { createNewCharacter,  getRandomPic } from "../../services"
 import { Button } from '@mui/material'
 import { createTheme } from '@mui/material/styles';
 import './Create.css'
@@ -27,6 +27,12 @@ export default function Create(props) {
   const [image, setImage] = useState('')
   const nav = useNavigate()
   const [toggleImg, setToggleImg] = useState(false)
+  
+  
+  const randPic = () => {
+    const pic = getRandomPic()
+    setImage(pic)
+  }
 
   const createCharacter = async (e) => {
     e.preventDefault()
@@ -47,14 +53,7 @@ export default function Create(props) {
     }
     props.setToggle(e=>!e)
   }
-  const getRandomPic = () => {
-    if (toggleImg) {
-      setImage('https://random.imagecdn.app/500/500')
-    } else {
-      setImage('https://source.unsplash.com/random/500x500/?img=1')
-    }
-    setToggleImg(e=>!e)
-  }
+
   return (
 
     <div className='create'>
@@ -63,13 +62,13 @@ export default function Create(props) {
           <h2>Name Yourself </h2>
         <input type='text' maxlength="20" id='name' value={name} 
             onChange={(e) => { setName(e.target.value) }} placeholder="What's your name?" />
-          <h2>On offense, you:</h2>
+          <h2>Primarily, on offense, you:</h2>
         <input type='text' maxlength="50" id='attack' value={attack}
             onChange={(e) => { setAttack(e.target.value) }} placeholder="What's your primary attack?" />
-          <h2>To defend yourself, you:</h2>
+          <h2>Your Random style of battle:</h2>
         <input type='text' maxlength="50" id='defense' value={defense}
-            onChange={(e) => { setDefense(e.target.value) }} placeholder="What's your defensive move?" />
-          <h2>Your heroic biography would say:</h2>
+            onChange={(e) => { setDefense(e.target.value) }} placeholder="From where does your randomness hail?" />
+          <h2>Your random biography would say:</h2>
         <input type='text' maxlength="150" id='description' value={description}
           onChange={(e) => { setDescription(e.target.value) }} placeholder="Describe your character" />
         <input type='text' id='image' value={image} 
@@ -82,7 +81,7 @@ export default function Create(props) {
           <div className='frame'>{image &&
             <img id='portrait' src={image} />}</div>
           <div>
-          <Button size='large' variant='contained' theme={theme}  onClick={() => { getRandomPic() }}>Random Image</Button>
+          <Button size='large' variant='contained' theme={theme}  onClick={randPic}>Random Image</Button>
           </div>
         </div>
         <div className='preview-holder'>
@@ -90,7 +89,7 @@ export default function Create(props) {
           <h1 className='input' id='namepre'>{name}</h1>
           <h2 className='prev-move'>Primary Attack</h2>
           <h2 className='input'>{attack}</h2>
-          <h2 className='prev-move'>Defensive Move</h2>
+          <h2 className='prev-move'>Source of Randomness</h2>
           <h2 className='input'>{defense}</h2>
           <h3>Biography:</h3>
           <p id="prev-desc" className='input'>{description}</p>
