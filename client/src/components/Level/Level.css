@@ -58,6 +58,7 @@
   justify-content: space-evenly;
   border-top: 3px solid black;
 }
+
 .enemy {
   grid-row: 2/5;
   grid-column: 1/6;
@@ -65,14 +66,25 @@
   flex-direction: column;
   align-items: center;
 }
+.enemy > h2 {
+  font-size: 3em;
+}
 .enemy-bottom {
   display: flex;
+  width: 100vw;
+  height: 30vh;
+  justify-content: space-around;
+  align-items: center;
 }
 .current-turn {
-  grid-row: 5;
-  grid-column: 1/6;
-  margin: 5%;
-  margin-bottom: 0;
+  flex-basis: 33vw;
+}
+
+.frame-enemy {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #total-dam {
   display: flex;
@@ -80,4 +92,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.frame-pic {
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  background: #5271ff;
+  margin: auto;
+  padding: 15px 15px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.frame-pic > img {
+  width: 40vw;
+}
+#recap-right {
+  border-left: 2px solid black;
+}
+#recap-right > p {
+  margin: 20px;
+}
+.recap-left > p {
+  margin: 20px;
 }

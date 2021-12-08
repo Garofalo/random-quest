@@ -251,27 +251,31 @@ export default function Level(props) {
       <div className='enemy'>
         <h2>{enemy}</h2>
         <div className='enemy-bottom'>
-          <div className='enemy-hp'>
-        <h2>HP</h2>
-        <h2>{enemyHp}</h2></div>
-        <div className='frame-pic'>
-          <img src={enemyImg} alt='a random photo'/>
-          </div>
+        { enemyImg !== undefined &&
+            <div className='frame-enemy'><div className='frame-pic'>
+              <img src={enemyImg} alt='a random photo' />
+            </div>
+            <div className='enemy-hp'>
+        
+                <h2>{`HP: ${enemyHp}`}</h2></div>
+            </div>}
+            <div className='current-turn'><h1>{currentTurn}</h1>
+          
         </div>
         </div>
-        <div className='current-turn'><h1>{currentTurn}</h1>
+        
       </div>
       
       {gameOver === false && levelComplete === false &&
       <div className='turn-recap'>
       
-    
-      <p>Last turn, you</p>
-      <p>{prevTurn}</p>
-        <p>This Turn, you will use..</p>
+        <div className='recap-left'>
+      <p>Last turn,</p>
+      <p>{prevTurn}</p></div>
+        <div id='recap-right'><p >This Turn, you will use..</p>
         {
       action === false ? <p>{attack}</p> : <p>{defense}</p>
-        }
+        }</div>
       </div>
       
       
