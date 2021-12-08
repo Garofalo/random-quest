@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import CharacterList from './components/List/CharacterList';
 import Home from './components/Home/Home';
 import Header from './components/Header';
-import Help from './components/Help';
+import Help from './components/Help/Help';
 import Create from './components/Create/Create';
 import Details from './components/details/Details';
 import axios from 'axios';

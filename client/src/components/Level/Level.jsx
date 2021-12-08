@@ -172,7 +172,7 @@ export default function Level(props) {
       setTotalDamage(totalDamage + randNum50)
       checkFightStatus(hp, enemyHp-randNum50)
     } else if (result === 'high2') {
-      setCurrentTurn(`Your ${defense} ${randomWin ? randomWin: null} ${enemy} long enough to catch your breath! You recover ${randNum50} HP!`)
+      setCurrentTurn(`Your ${defense} ${randomWin ? randomWin: 'beats'} ${enemy} long enough to catch your breath! You recover ${randNum50} HP!`)
       setHp(hp+randNum50)
     } else if (result === 'low1') {
       setCurrentTurn(`You are bested in ${randomContest}, and suffer ${randNum25} damage!`)
