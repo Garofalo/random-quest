@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, Link, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { getRandomPic, rollDicePlayer, rollDiceComp, rollRandomResult, randomWinWord, randomLossWord, randomContestWord, randomNum, deleteCharacer, levelUp} from "../../services"
 import axios from "axios"
 import './Level.css'
@@ -25,7 +25,6 @@ const theme = createTheme({
 export default function Level(props) {
   
   const [level, setLevel] = useState(1)
-  const [displayLevel, setDisplayLevel] = useState('')
   const [character, setCharacter] = useState({})
   const [hp, setHp] = useState(100)
   const [enemyHp, setEnemyHp] = useState(100)
@@ -68,7 +67,6 @@ export default function Level(props) {
     
     const randPic = getRandomPic()
     setEnemyImg(randPic)
-    setDisplayLevel(parseInt(character?.fields?.level))
     setDefense(character?.fields?.defense)
     setAttack(character?.fields?.attack)
     setName(character?.fields?.name)
@@ -262,7 +260,7 @@ export default function Level(props) {
         { enemyImg !== undefined &&
             <div className='frame-enemy'>
             <div className='frame-pic'>
-              <img src={enemyImg} alt='a random photo' />
+              <img src={enemyImg} alt='something random' />
             </div>
             <div className='enemy-hp'>
               <h2>{`HP: ${enemyHp}`}</h2>

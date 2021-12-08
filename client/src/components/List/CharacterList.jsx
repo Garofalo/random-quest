@@ -34,7 +34,7 @@ export default function CharacterList(props) {
         props.characterList.map((character) => {
           return (<div className='char-card'>
           <h1>{character.fields.name}</h1><div className='list-frame'>
-            <img src={character.fields.image} /></div>
+            <img src={character.fields.image} alt='character portrait'/></div>
             <Link to={`/details/${character.id}`}>
               <Button size='large' variant='contained' theme={theme}>Select This Character</Button>
             </Link>

@@ -1,6 +1,5 @@
 import {  useNavigate, useParams } from "react-router"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
 import { createTheme } from '@mui/material/styles';
 import '@fontsource/roboto/300.css';
@@ -27,12 +26,14 @@ export default function Details(props) {
   const nav = useNavigate()
 
   useEffect(() => {
-    if (props.characterList) {
+    if (props?.characterList) {
       const foundCharacter = props.characterList.find((char) => { return char.id === params.id })
       setCharacter(foundCharacter)
     }
     
-  }, [params.id, props.characters])
+  }, [params.id, props.characterList])
+  
+  
   function returnHome() {
     props.setToggle(e => !e)
     nav('/charlist')
@@ -51,7 +52,7 @@ export default function Details(props) {
           <div id='title-holder'><h1 >The Wonderful </h1><h1 id='name'>{character.fields.name}</h1>
           </div>
           <div className='frame-detail'>
-          <img id='char-pic' src={character.fields.image} />
+          <img id='char-pic' src={character.fields.image} alt='character portrait'/>
           </div>
         </div>
         <div className='det-moves'>

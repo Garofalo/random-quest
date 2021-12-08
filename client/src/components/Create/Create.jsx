@@ -26,7 +26,6 @@ export default function Create(props) {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
   const nav = useNavigate()
-  const [toggleImg, setToggleImg] = useState(false)
   
   
   const randPic = () => {
@@ -80,7 +79,7 @@ export default function Create(props) {
       <div className='right'>
         <div className='image-section'>
           <div className='frame'>{image &&
-            <img id='portrait' src={image} />}</div>
+            <img id='portrait' src={image} alt='character'/>}</div>
           <div>
           <Button size='large' variant='contained' theme={theme}  onClick={randPic}>Random Image</Button>
           </div>
