@@ -85,7 +85,7 @@ export const randomLossWord = () => {
   let random = Math.ceil(Math.random() * randomLoss.length)
   return randomLoss[random]
 }
-let randomContest = ['', 'a Staring Contest', 'a Dance Off', 'Loudest Singer-off', 'a Pushup Contest', 'a Fastest to Knit a Sweater Contest', 'a Hot Yoga For the Longest Contest', 'a Guess that Smell Contest', "a Thumb Wrasslin' Match", "a Great Brexit Bake Off", "a Loop, Swoop & Pull Off", "a Game of Hot Hands", "Extreme Jenga", "Greenest Lifestyle Competition", "Whose Hair is That? Contest"]
+let randomContest = ['', 'a Staring Contest', 'a Dance Off', 'Loudest Singer-off', 'a Pushup Contest', 'a Fastest to Knit a Sweater Contest', 'a Hot Yoga For the Longest Contest', 'a Guess that Smell Contest', "a Thumb Wrasslin' Match", "a Great Brexit Bake Off", "a Loop, Swoop & Pull Off", "a Game of Hot Hands", "Extreme Jenga", "a Greenest Lifestyle Competition", "a Whose Hair is That? Contest"]
 
 export const randomContestWord = () => {
   let random = Math.ceil(Math.random() * randomContest.length)
@@ -108,4 +108,10 @@ export const getRandomPic = () => {
       return false
     }
   }
+}
+
+export const levelUp = async (body, id) => {
+  const res = await axios.put(`${characterURL}/${id}`, { fields: body }, config)
+  console.log(res.data)
+  return res.data
 }

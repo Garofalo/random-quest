@@ -38,6 +38,7 @@
 }
 img {
   border-radius: 50%;
+  width: 11vw;
 }
 .char-card > * {
   margin: 2%;

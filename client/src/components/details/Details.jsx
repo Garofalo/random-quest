@@ -29,7 +29,7 @@ export default function Details(props) {
   useEffect(() => {
     if (props.characterList) {
       const foundCharacter = props.characterList.find((char) => { return char.id === params.id })
-     setCharacter(foundCharacter)
+      setCharacter(foundCharacter)
     }
     
   }, [params.id, props.characters])
@@ -51,7 +51,7 @@ export default function Details(props) {
           <div id='title-holder'><h1 >The Wonderful </h1><h1 id='name'>{character.fields.name}</h1>
           </div>
           <div className='frame-detail'>
-          <img src={character.fields.image} />
+          <img id='char-pic' src={character.fields.image} />
           </div>
         </div>
         <div className='det-moves'>

@@ -43,7 +43,8 @@ export default function Create(props) {
       image,
       description,
       hp: '100',
-      level: '1',
+      level: parseInt(1),
+      totalDamage: parseInt(0),
 
     }
     const res = await createNewCharacter(newChar)

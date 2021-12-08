@@ -68,9 +68,6 @@ form > h2 {
   flex-direction: column;
 }
 
-/* .preview-holder > * {
-  margin-left: 5vw;
-} */
 .preview-holder > h1 {
   font-size: 2.5em;
   margin-top: -2vh;

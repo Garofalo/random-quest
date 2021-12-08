@@ -98,6 +98,10 @@ h2 {
     width: 20vw;
     height: 20vw;
   }
+  .frame-detail > img {
+    width: 20vw;
+    border-radius: 50%;
+  }
   .select {
     grid-row: 4;
     grid-column: 7;
