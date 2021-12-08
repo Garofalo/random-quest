@@ -228,40 +228,49 @@ export default function Level(props) {
   }
   return (
     <div className='level'>{level &&
-      <div id='level'>
-      <h1>{`Turn ${turn}`}</h1>
-      <h1 >{`Level ${level}`}</h1>
-      <div id='total-dam'>
+      <div id='current'>
+       <div id='level'>
+        <h1>Level</h1>
+        <h1>{level}</h1>
+      </div>
+      <div id='turn'>
+        <h1>Turn</h1>
+        <h1>{turn}</h1>
+      </div>
+     <div id='total-dam'>
         <h1>Total Damage</h1>
-        <h1>{totalDamage}</h1>
+        <h1 className='red'>{totalDamage}</h1>
       </div>
     </div>
     } 
-      <div className='player'>
-      <h1 className='name'>{character?.fields?.name}</h1>
+    <div className='player'>
+      <div className='name'><h1 >{character?.fields?.name}</h1></div>
       <Button size='large' variant='contained' theme={theme}  id='submit' onClick={test}>Submit Move</Button>
         <div className='hp'>
           <h1>HP Remaining</h1>
-        <h1>{hp}</h1></div>
-        <div className='selectors'>
-        <Button size='large' variant='contained' theme={theme}  id='primary' onClick={()=>setAction(false)}>{attack}</Button>
-        <Button size='large' variant='contained' theme={theme}  id='defense' onClick={() => setAction(true)}>{defense}</Button>
+          <h1 id='hp'>{hp}</h1>
         </div>
+      <div className='selectors'>
+        <div className='selector-button'><Button size='large' variant='contained' theme={theme}  id='primary' onClick={()=>setAction(false)}>{attack}</Button></div>
+        <div className='selector-button'><Button size='large' variant='contained' theme={theme}  id='defense' onClick={() => setAction(true)}>{defense}</Button></div>
       </div>
+    </div>
+      <h2 className='enemy-name red'>{enemy}</h2>
       <div className='enemy'>
-        <h2>{enemy}</h2>
+        
         <div className='enemy-bottom'>
         { enemyImg !== undefined &&
-            <div className='frame-enemy'><div className='frame-pic'>
+            <div className='frame-enemy'>
+            <div className='frame-pic'>
               <img src={enemyImg} alt='a random photo' />
             </div>
             <div className='enemy-hp'>
-        
-                <h2>{`HP: ${enemyHp}`}</h2></div>
+              <h2>{`HP: ${enemyHp}`}</h2>
+            </div>
             </div>}
-            <div className='current-turn'><h1>{currentTurn}</h1>
-          
-        </div>
+          <div className='current-turn'>
+            <h1>{currentTurn}</h1>
+          </div>
         </div>
         
       </div>
