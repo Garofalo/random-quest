@@ -26,8 +26,8 @@ export default function CharacterList(props) {
 
   return (
     <div className='character-list'>
-       <Link id='new-char' to='/create'>
-        <Button size='large' variant='contained'  theme={theme} onClick={props.setToggle(e => !e)}>Create a New Character</Button>
+      <Link id='new-char' to='/create'>
+        <Button size='large' variant='contained'  theme={theme} onClick={()=>props.setToggle(e => !e)}>Create a New Character</Button>
       </Link>
       <div className='list'>
       {props.characterList &&
@@ -41,9 +41,8 @@ export default function CharacterList(props) {
             </div>
           )
         })
-      }</div>
-
-     
+        }
+      </div>
     </div>
   )
 }
