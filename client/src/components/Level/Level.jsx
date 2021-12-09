@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { getRandomPic, rollDicePlayer, rollDiceComp, rollRandomResult, randomWinWord, randomLossWord, randomContestWord, randomNum, deleteCharacer, levelUp} from "../../services"
+import { getRandomPic, rollDicePlayer, rollDiceComp, rollRandomResult, randomWinWord, randomLossWord, randomContestWord, randomNum, deleteCharacer, levelUp, highScore} from "../../services"
 import axios from "axios"
 import './Level.css'
 import { Button } from "@mui/material"
@@ -27,7 +27,7 @@ export default function Level(props) {
   const [level, setLevel] = useState(1)
   const [character, setCharacter] = useState({})
   const [hp, setHp] = useState(100)
-  const [enemyHp, setEnemyHp] = useState(100)
+  const [enemyHp, setEnemyHp] = useState('??')
   const [enemy, setEnemy] = useState()
   const [prevEnemy, setPrevEnemy]=useState('')
   const params = useParams()
@@ -41,15 +41,18 @@ export default function Level(props) {
   const [description, setDescription] = useState('')
   const [totalDamage, setTotalDamage] = useState(0)
   const [enemyImg, setEnemyImg] = useState('')
+  const [high, setHigh] = useState(0)
+  const [tempLevel, setTempLevel] = useState('')
   
 
   const createEnemy = async () => {
     const noun = await axios.get('https://random-word-form.herokuapp.com/random/noun')
     const adject = await axios.get('https://random-word-form.herokuapp.com/random/adjective')
-    
+
     console.log(noun.data)
     console.log(adject.data)
     setEnemy(`The ${adject.data} ${noun.data}`)
+    
   }
 
   //This Sets The Player
@@ -58,14 +61,20 @@ export default function Level(props) {
     if (props.characterList) {
       const foundCharacter = props.characterList.find((char) => { return char.id === params.id })
       setCharacter(foundCharacter)
+     
     }
-    
   }, [params.id, props.characterList, level])
 
+  useEffect(() => {
+
+    setEnemyHp(parseInt(tempLevel * 50))
+  },[level, enemy])
 
   //This Sets The Game
   useEffect(() => {
-    
+    setTempLevel(parseInt(character?.fields?.level))
+    console.log(typeof tempLevel)
+    setHigh(parseInt(props?.hall?.fields?.level))
     const randPic = getRandomPic()
     setEnemyImg(randPic)
     setDefense(character?.fields?.defense)
@@ -77,10 +86,7 @@ export default function Level(props) {
     createEnemy()
     setTurn(1)
     setCurrentTurn('')
-    
     setHp(100)
-    
-  
   }, [character, level])
 
 
@@ -102,10 +108,11 @@ export default function Level(props) {
   const action1 = () => {
     let randomWin = randomWinWord()
     let randomLoss= randomLossWord()
-    let resultPlayer = rollDicePlayer(level)
-    let resultComp = rollDiceComp(level)
+    let resultPlayer = rollDicePlayer(tempLevel)
+    let resultComp = rollDiceComp(tempLevel)
     let modify = 0
     setPrevTurn(currentTurn)
+    
 
     if (resultPlayer > resultComp) {
       modify = resultPlayer - resultComp
@@ -115,7 +122,7 @@ export default function Level(props) {
       checkFightStatus(hp, enemyHp - modify)
     } else if (resultComp > resultPlayer) {
       modify = resultComp - resultPlayer
-      setCurrentTurn(`${enemy} ${randomLoss} and deals ${modify} damage to you!`)
+      setCurrentTurn(`${enemy} ${randomLoss ? randomLoss: 'smacks you upside your head'} and deals ${modify} damage to you!`)
       setHp(hp - modify)
       checkFightStatus(hp-modify, enemyHp)
     } else if (resultPlayer === resultComp) {
@@ -127,6 +134,7 @@ export default function Level(props) {
     if (a <= 0) {
       setGameOver(true)
       setHp('You Dead')
+      setEnemyHp(`Dances over your defeated form`)
     } else if (b <= 0) {
       setLevelComplete(true)
       setEnemyHp('DEAD!!')
@@ -191,6 +199,7 @@ export default function Level(props) {
     } else if (action === true) {
       action2()
     }
+    console.log(typeof enemyHp)
     setTurn(e => e + 1)
     setPrevEnemy(enemy)
   }
@@ -198,6 +207,14 @@ export default function Level(props) {
 
   const handleGameOver = async () => {
     const res = await deleteCharacer(params.id)
+
+    const newHigh = {
+      name,
+      level: parseInt(level) 
+    }
+    if (level >= high) {
+      const up = await highScore(newHigh, props?.hall?.id)
+    }
     if (res) {
       props.setToggle(e=>!e)
       nav('/')
@@ -230,7 +247,7 @@ export default function Level(props) {
       <div id='current'>
        <div id='level'>
         <h1>Level</h1>
-        <h1>{level}</h1>
+        <h1>{tempLevel}</h1>
       </div>
       <div id='turn'>
         <h1>Turn</h1>
@@ -241,19 +258,19 @@ export default function Level(props) {
         <h1 className='red'>{totalDamage}</h1>
       </div>
     </div>
-    } 
-    <div className='player'>
-      <div className='name'><h1 >{character?.fields?.name}</h1></div>
-      <Button size='large' variant='contained' theme={theme}  id='submit' onClick={test}>Submit Move</Button>
-        <div className='hp'>
-          <h1>HP Remaining</h1>
-          <h1 id='hp'>{hp}</h1>
-        </div>
-      <div className='selectors'>
-        <div className='selector-button'><Button size='large' variant='contained' theme={theme}  id='primary' onClick={()=>setAction(false)}>{attack}</Button></div>
-        <div className='selector-button'><Button size='large' variant='contained' theme={theme}  id='defense' onClick={() => setAction(true)}>{defense}</Button></div>
-      </div>
-    </div>
+    } { levelComplete===false && gameOver ===false &&
+        <div className='player'>
+          <div className='name'><h1 >{character?.fields?.name}</h1></div>
+          <Button size='large' variant='contained' theme={theme} id='submit' onClick={test}>Submit Move</Button>
+          <div className='hp'>
+            <h1>HP Remaining</h1>
+            <h1 id='hp'>{hp}</h1>
+          </div>
+          <div className='selectors'>
+            <div className='selector-button'><Button size='large' variant='contained' theme={theme} id='primary' onClick={() => setAction(false)}>{attack}</Button></div>
+            <div className='selector-button'><Button size='large' variant='contained' theme={theme} id='defense' onClick={() => setAction(true)}>{defense}</Button></div>
+          </div>
+        </div>}
       <h2 className='enemy-name red'>{enemy}</h2>
       <div className='enemy'>
         
@@ -264,7 +281,9 @@ export default function Level(props) {
               <img src={enemyImg} alt='something random' />
             </div>
             <div className='enemy-hp'>
-              <h2>{`HP: ${enemyHp}`}</h2>
+              { gameOver === false && levelComplete === false &&
+              <h2>HP</h2>}
+              <h2>{enemyHp}</h2>
             </div>
             </div>}
           <div className='current-turn'>
@@ -291,13 +310,13 @@ export default function Level(props) {
       {
         gameOver === true && <div className='goodbye'>
           <h1>{`Say Goodbye to ${character.fields.name} Forever!`}</h1>
-          <Button size='large' variant='contained' theme={theme}  onClick={handleGameOver}>Goodbye!</Button>
+          <Button size='large' variant='contained' theme={theme} onClick={handleGameOver}>Goodbye!</Button>
+          <h1>{`HP: ${hp}`}</h1>
         </div>
       }
       {
         levelComplete === true && 
-    
-        <div className='levelup'><Button size='large' variant='contained' theme={theme}  onClick={handleLevelComplete}>Level Up!</Button></div>
+      <div className='levelup'><Button size='large' variant='contained' theme={theme}  onClick={handleLevelComplete}>Level Up!</Button></div>
         
       }
 

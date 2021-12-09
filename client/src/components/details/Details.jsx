@@ -68,7 +68,7 @@ export default function Details(props) {
         <div className='select' id='select'><Button size='large' variant='contained' theme={theme}id='select' onClick={startGame}>Start the Game</Button></div>
         <div className='det-right'>
         <h1>HP</h1>
-        <h1 id='hp'>{character.fields.hp}</h1>
+        <h1 id='hp-stat'>{character.fields.hp}</h1>
         <h1>Level</h1>
         <h1 id='level'>{character.fields.level}</h1>
         </div>

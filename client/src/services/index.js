@@ -4,6 +4,7 @@ const airTableBase = process.env.REACT_APP_AIRTABLE_BASE
 const airTableKey = process.env.REACT_APP_AIRTABLE_KEY
 
 export const characterURL = `https://api.airtable.com/v0/${airTableBase}/characters`
+export const hallURL = `https://api.airtable.com/v0/${airTableBase}/hall`
 
 export const config = {
   headers: {
@@ -15,7 +16,7 @@ export const createNewCharacter = async (body)=>{
   return res.data
 }
 export const deleteCharacer = async (id) => {
-   
+
     const res = await axios.delete(`${characterURL}/${id}`, config)
     return res.data
   }
@@ -114,4 +115,9 @@ export const levelUp = async (body, id) => {
   const res = await axios.put(`${characterURL}/${id}`, { fields: body }, config)
   console.log(res.data)
   return res.data
+}
+
+export const highScore = async (body, id) => {
+  const res = await axios.put(`${hallURL}/${id}`, { fields: body }, config)
+  
 }

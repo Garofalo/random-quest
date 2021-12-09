@@ -30,6 +30,11 @@ export default function Home(props) {
 
   return (
     <div className='home'>
+      <div className='hall-holder'>
+        <h1>High Score</h1>
+        <h1>{props?.hall?.fields?.name}</h1>
+        <h1>{`Level ${props?.hall?.fields?.level}`}</h1>
+      </div>
       <div className='logo-holder'>
         <Link to='/charlist' ><img id='logo' src={logo} alt='random quest'/></Link>
       </div>
