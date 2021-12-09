@@ -58,7 +58,7 @@ export default function Details(props) {
         <div className='det-moves'>
         <h2>Primary Attack:</h2>
         <h2 className='inputs'>{character.fields.attack}</h2>
-        <h2>Defensive Move:</h2>
+        <h2>Source of Randomness:</h2>
           <h2 className='inputs'>{character.fields.defense}</h2>
         </div>
         <div className='det-desc'>

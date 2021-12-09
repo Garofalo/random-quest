@@ -26,9 +26,10 @@ export default function CharacterList(props) {
 
   return (
     <div className='character-list'>
+      <div>
       <Link id='new-char' to='/create'>
         <Button size='large' variant='contained'  theme={theme} onClick={()=>props.setToggle(e => !e)}>Create a New Character</Button>
-      </Link>
+      </Link></div>
       <div className='list'>
       {props.characterList &&
         props.characterList.map((character) => {

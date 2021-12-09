@@ -78,7 +78,7 @@ export default function Level(props) {
     setCurrentTurn('')
     
     setHp(100)
-    
+    props.setToggle(e=>!e)
   
   }, [character, level])
 
@@ -108,7 +108,7 @@ export default function Level(props) {
 
     if (resultPlayer > resultComp) {
       modify = resultPlayer - resultComp
-      setCurrentTurn(`Your ${attack} ${randomWin} their strike to deal ${modify} damage!`)
+      setCurrentTurn(`Your ${attack} ${randomWin ? randomWin: 'beats'} their strike to deal ${modify} damage!`)
       setEnemyHp(enemyHp - modify)
       setTotalDamage(totalDamage + modify)
       checkFightStatus(hp, enemyHp - modify)
