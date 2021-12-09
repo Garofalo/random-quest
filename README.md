@@ -4,7 +4,7 @@
 
 ## Project Name
 
-Random Quest
+Random Quest (https://randomquest.netlify.app/)
 
 ## Project Description
 
