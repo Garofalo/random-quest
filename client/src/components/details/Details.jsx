@@ -7,6 +7,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './Details.css'
+import { getRandomNiceWords } from "../../services";
 const theme = createTheme({
   palette: {
     primary: {
@@ -42,6 +43,7 @@ export default function Details(props) {
   function startGame() {
     nav(`/battle/${character.id}`)
   }
+  let randomNice = getRandomNiceWords()
 
 
   return(
@@ -49,14 +51,14 @@ export default function Details(props) {
       character?.fields &&
       <div className='character-details'>
         <div className='det-title'>
-          <div id='title-holder'><h1 >The Wonderful </h1><h1 id='name'>{character.fields.name}</h1>
+          <div id='title-holder'><h1 >{randomNice ? randomNice : 'The Fantastic'}</h1><h1 id='name'>{character.fields.name}</h1>
           </div>
           <div className='frame-detail'>
           <img id='char-pic' src={character.fields.image} alt='character portrait'/>
           </div>
         </div>
         <div className='det-moves'>
-        <h2>Primary Attack:</h2>
+        <h2>Go to Move:</h2>
         <h2 className='inputs'>{character.fields.attack}</h2>
         <h2>Source of Randomness:</h2>
           <h2 className='inputs'>{character.fields.defense}</h2>

@@ -92,6 +92,12 @@ export const randomContestWord = () => {
   let random = Math.ceil(Math.random() * randomContest.length)
   return randomContest[random]
 }
+let randomNiceWords = ['', 'The Wonderful', 'Tha Doggfather', "The Ruler of All", 'The Oft-Magnanimous', 'The Style in the Substance', 'The Great', 'The Exalted', 'The Grand', 'The One', 'The Ringbearer', 'The Groovy', 'The Dingus', "The Redacted", 'The Go-Bot', 'The Goth', "The Swingin'", "The Grouch", 'The Ever-Present', 'The almighty']
+
+export const getRandomNiceWords = () => {
+  let random = Math.ceil(Math.random() * randomNiceWords.length)
+  return randomNiceWords[random]
+}
 
 export const randomNum = (mult) => {
   let rand = Math.ceil(Math.random() * mult)
@@ -119,5 +125,5 @@ export const levelUp = async (body, id) => {
 
 export const highScore = async (body, id) => {
   const res = await axios.put(`${hallURL}/${id}`, { fields: body }, config)
-  
+  return res
 }

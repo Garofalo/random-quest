@@ -1,6 +1,6 @@
-import { useState } from "react"
+import {  useState } from "react"
 import { useNavigate } from "react-router"
-import { createNewCharacter,  getRandomPic } from "../../services"
+import { createNewCharacter,   getRandomPic } from "../../services"
 import { Button } from '@mui/material'
 import { createTheme } from '@mui/material/styles';
 import './Create.css'
@@ -32,6 +32,7 @@ export default function Create(props) {
     const pic = getRandomPic()
     setImage(pic)
   }
+  
 
   const createCharacter = async (e) => {
     e.preventDefault()
@@ -59,7 +60,7 @@ export default function Create(props) {
     <div className='create'>
       <div className='left-form' >
         <form className='left' >
-          <h2>Name Yourself </h2>
+          <h2>Introducing..</h2>
         <input type='text' maxlength="20" id='name' value={name} 
             onChange={(e) => { setName(e.target.value) }} placeholder="What's your name?" />
           <h2>Primarily, on offense, you:</h2>
@@ -85,9 +86,9 @@ export default function Create(props) {
           </div>
         </div>
         <div className='preview-holder'>
-          <h1 id='title'>Introducing...</h1>
+          <h1 id='title'>{'The Exuberant'}</h1>
           <h1 className='input' id='namepre'>{name}</h1>
-          <h2 className='prev-move'>Primary Attack</h2>
+          <h2 className='prev-move'>Go To Move</h2>
           <h2 className='input'>{attack}</h2>
           <h2 className='prev-move'>Source of Randomness</h2>
           <h2 className='input'>{defense}</h2>

@@ -68,12 +68,12 @@ export default function Level(props) {
   useEffect(() => {
 
     setEnemyHp(parseInt(tempLevel * 50))
-  },[level, enemy])
+  },[level, enemy, tempLevel])
 
   //This Sets The Game
   useEffect(() => {
     setTempLevel(parseInt(character?.fields?.level))
-    console.log(typeof tempLevel)
+    
     setHigh(parseInt(props?.hall?.fields?.level))
     const randPic = getRandomPic()
     setEnemyImg(randPic)
@@ -87,7 +87,7 @@ export default function Level(props) {
     setTurn(1)
     setCurrentTurn('')
     setHp(100)
-  }, [character, level])
+  }, [character, level,props?.hall?.fields?.level,  ])
 
 
 
@@ -214,6 +214,7 @@ export default function Level(props) {
     }
     if (level >= high) {
       const up = await highScore(newHigh, props?.hall?.id)
+      return up
     }
     if (res) {
       props.setToggle(e=>!e)
