@@ -1,6 +1,6 @@
 import {  useState } from "react"
 import { useNavigate } from "react-router"
-import { createNewCharacter,   getRandomPic } from "../../services"
+import { createNewCharacter, getRandomPic } from "../../services"
 import { Button } from '@mui/material'
 import { createTheme } from '@mui/material/styles';
 import './Create.css'

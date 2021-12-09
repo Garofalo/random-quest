@@ -223,6 +223,7 @@ export default function Level(props) {
   }
   const handleLevelComplete = async () => {
     setLevel(level + 1);
+    setTempLevel(tempLevel + 1)
     setPrevTurn(`Defeated ${prevEnemy}`);
     setGameOver(false);
     setLevelComplete(false)
