@@ -42,8 +42,6 @@ export default function Level(props) {
   const [totalDamage, setTotalDamage] = useState(0)
   const [enemyImg, setEnemyImg] = useState('')
   const [high, setHigh] = useState(0)
-  const [tempLevel, setTempLevel] = useState('')
-  
 
   const createEnemy = async () => {
     const noun = await axios.get('https://random-word-form.herokuapp.com/random/noun')
@@ -61,18 +59,18 @@ export default function Level(props) {
     if (props.characterList) {
       const foundCharacter = props.characterList.find((char) => { return char.id === params.id })
       setCharacter(foundCharacter)
-     
     }
   }, [params.id, props.characterList, level])
 
   useEffect(() => {
 
-    setEnemyHp(parseInt(tempLevel * 50))
-  },[level, enemy, tempLevel])
+    setEnemyHp(parseInt(level * 50))
+  }, [enemy, level])
+  
 
   //This Sets The Game
   useEffect(() => {
-    setTempLevel(parseInt(character?.fields?.level))
+    
     
     setHigh(parseInt(props?.hall?.fields?.level))
     const randPic = getRandomPic()
@@ -87,7 +85,7 @@ export default function Level(props) {
     setTurn(1)
     setCurrentTurn('')
     setHp(100)
-  }, [character, level,props?.hall?.fields?.level,  ])
+  }, [character, level,props?.hall?.fields?.level  ])
 
 
 
@@ -96,24 +94,15 @@ export default function Level(props) {
   const [gameOver, setGameOver] = useState(false)
   const [levelComplete, setLevelComplete] = useState(false)
   const [action, setAction] = useState()
-  const [turn, setTurn] = useState(1)
-
-
-  
-  
-
-
-  
+  const [turn, setTurn] = useState()
   
   const action1 = () => {
     let randomWin = randomWinWord()
     let randomLoss= randomLossWord()
-    let resultPlayer = rollDicePlayer(tempLevel)
-    let resultComp = rollDiceComp(tempLevel)
+    let resultPlayer = rollDicePlayer(level)
+    let resultComp = rollDiceComp(level)
     let modify = 0
     setPrevTurn(currentTurn)
-    
-
     if (resultPlayer > resultComp) {
       modify = resultPlayer - resultComp
       setCurrentTurn(`Your ${attack} ${randomWin ? randomWin: 'beats'} their strike to deal ${modify} damage!`)
@@ -199,7 +188,6 @@ export default function Level(props) {
     } else if (action === true) {
       action2()
     }
-    console.log(typeof enemyHp)
     setTurn(e => e + 1)
     setPrevEnemy(enemy)
   }
@@ -223,11 +211,11 @@ export default function Level(props) {
   }
   const handleLevelComplete = async () => {
     setLevel(level + 1);
-    setTempLevel(tempLevel + 1)
+  
     setPrevTurn(`Defeated ${prevEnemy}`);
     setGameOver(false);
     setLevelComplete(false)
-    setEnemyHp(50*(level+1))
+    
     const levelUpChar = {
       name,
       attack,
@@ -249,7 +237,7 @@ export default function Level(props) {
       <div id='current'>
        <div id='level'>
         <h1>Level</h1>
-        <h1>{tempLevel}</h1>
+        <h1>{level}</h1>
       </div>
       <div id='turn'>
         <h1>Turn</h1>
