@@ -50,6 +50,9 @@
   flex-direction: column;
   align-items: center;
 }
+.goodbye {
+  grid-row: 5;
+}
 #current {
   grid-row: 1;
   grid-column: 1/6;
@@ -63,6 +66,8 @@
 }
 .red {
   color: red;
+}
+.levelup {
 }
 .turn-recap {
   grid-row: 6;

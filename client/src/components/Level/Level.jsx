@@ -59,6 +59,7 @@ export default function Level(props) {
       const foundCharacter = props.characterList.find((char) => { return char.id === params.id })
       setCharacter(foundCharacter)
     }
+    
   }, [params.id, props.characterList, level])
 
 
@@ -78,7 +79,7 @@ export default function Level(props) {
     setCurrentTurn('')
     
     setHp(100)
-    props.setToggle(e=>!e)
+    
   
   }, [character, level])
 
@@ -148,7 +149,7 @@ export default function Level(props) {
       setCurrentTurn(`${defense} makes ${enemy} think twice about attacking, letting you recover ${randNum25} HP!`)
       setHp(hp+randNum25>100 ? 100:hp+randNum25)
     } else if (result === 'average1') {
-      setCurrentTurn(`You both engage in ${randomContest} but nothing much comes of it`)
+      setCurrentTurn(`You both engage in ${randomContest ? randomContest: 'horseplay'} but nothing much comes of it`)
     } else if (result === 'average2') {
       setCurrentTurn(`Your ${defense} doesn't cut the mustard. ${enemy} ${randomLoss} and evens it out.`)
     } else if (result === 'fumble1') {
@@ -165,7 +166,7 @@ export default function Level(props) {
       setTotalDamage(damage => (enemyHp-1)+damage)
       setEnemyHp(1)
     } else if (result === 'high1') {
-      setCurrentTurn(`Nice! ${randomContest} gets ugly and deals ${randNum50} damage to ${enemy}`)
+      setCurrentTurn(`Nice! ${randomContest ? randomContest: 'horseplay'} gets ugly and deals ${randNum50} damage to ${enemy}`)
       setEnemyHp(enemyHp - randNum50)
       setTotalDamage(totalDamage + randNum50)
       checkFightStatus(hp, enemyHp-randNum50)
@@ -173,7 +174,7 @@ export default function Level(props) {
       setCurrentTurn(`Your ${defense} ${randomWin ? randomWin: 'beats'} ${enemy} long enough to catch your breath! You recover ${randNum50} HP!`)
       setHp(hp+randNum50)
     } else if (result === 'low1') {
-      setCurrentTurn(`You are bested in ${randomContest}, and suffer ${randNum25} damage!`)
+      setCurrentTurn(`You are bested in ${randomContest ? randomContest: 'horseplay'}, and suffer ${randNum25} damage!`)
       setHp(hp - randNum25)
       checkFightStatus(hp-randNum25, enemyHp)
       } else if (result === 'low2') {
@@ -288,15 +289,15 @@ export default function Level(props) {
       
         }
       {
-        gameOver === true && <>
+        gameOver === true && <div className='goodbye'>
           <h1>{`Say Goodbye to ${character.fields.name} Forever!`}</h1>
           <Button size='large' variant='contained' theme={theme}  onClick={handleGameOver}>Goodbye!</Button>
-        </>
+        </div>
       }
       {
         levelComplete === true && 
     
-        <Button size='large' variant='contained' theme={theme}  onClick={handleLevelComplete}>next level</Button>
+        <div className='levelup'><Button size='large' variant='contained' theme={theme}  onClick={handleLevelComplete}>Level Up!</Button></div>
         
       }
 
